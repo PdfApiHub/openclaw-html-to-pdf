@@ -1,5 +1,5 @@
 {
-  "name": "@pdfapihub/html-to-pdf",
+  "name": "html-pdf",
   "version": "1.0.0",
   "description": "Generate PDFs from HTML content or URLs. Supports custom page sizes, Google Fonts, margins, dynamic placeholders, and reusable templates. Powered by PDFAPIHub.",
   "type": "module",
