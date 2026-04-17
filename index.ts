@@ -51,12 +51,12 @@ function getApiKey(config: Record<string, unknown>): string {
 }
 
 const plugin: PluginEntry = {
-  id: "pdfapihub-html-to-pdf",
-  name: "PDFAPIHub HTML to PDF",
+  id: "html-to-pdf",
+  name: "HTML to PDF",
   register(api) {
     // ─── Generate PDF ────────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_generate_pdf",
+      name: "html_to_pdf",
       description:
         "Generate a PDF from HTML content or a public URL. Supports custom page sizes (A4, Letter, etc.), Google Fonts, margins, landscape mode, viewport dimensions, dynamic parameter substitution via {{placeholders}}, and template_id references. Returns a download URL or base64.",
       parameters: {
@@ -171,9 +171,9 @@ const plugin: PluginEntry = {
 
     // ─── URL to HTML ─────────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_url_to_html",
+      name: "url_to_html",
       description:
-        "Fetch the fully-rendered HTML of any public URL using headless Chromium. Useful for scraping SPAs or JS-rendered pages where a simple HTTP GET returns only a loading skeleton. The fetched HTML can then be passed to pdfapihub_generate_pdf.",
+        "Fetch the fully-rendered HTML of any public URL using headless Chromium. Useful for scraping SPAs or JS-rendered pages where a simple HTTP GET returns only a loading skeleton. The fetched HTML can then be passed to html_to_pdf.",
       parameters: {
         type: "object",
         properties: {
@@ -233,9 +233,9 @@ const plugin: PluginEntry = {
 
     // ─── Create Template ─────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_create_template",
+      name: "create_pdf_template",
       description:
-        "Save a reusable HTML/CSS template for PDF generation. Templates support dynamic placeholders ({{@key}}, ${key}, {key}) and can be referenced by template_id in pdfapihub_generate_pdf. Includes default parameters and rendering metadata.",
+        "Save a reusable HTML/CSS template for PDF generation. Templates support dynamic placeholders ({{@key}}, ${key}, {key}) and can be referenced by template_id in html_to_pdf. Includes default parameters and rendering metadata.",
       parameters: {
         type: "object",
         properties: {
@@ -285,9 +285,9 @@ const plugin: PluginEntry = {
 
     // ─── List Templates ──────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_list_templates",
+      name: "list_pdf_templates",
       description:
-        "List all saved PDF templates owned by the authenticated API key. Returns template IDs, names, default parameters, and timestamps. Use the template_id with pdfapihub_generate_pdf.",
+        "List all saved PDF templates owned by the authenticated API key. Returns template IDs, names, default parameters, and timestamps. Use the template_id with html_to_pdf.",
       parameters: {
         type: "object",
         properties: {},
@@ -308,7 +308,7 @@ const plugin: PluginEntry = {
 
     // ─── Get Template ────────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_get_template",
+      name: "get_pdf_template",
       description:
         "Retrieve full template details including HTML content, CSS, default parameters, and metadata by template_id.",
       parameters: {
@@ -340,7 +340,7 @@ const plugin: PluginEntry = {
 
     // ─── Update Template ─────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_update_template",
+      name: "update_pdf_template",
       description:
         "Update fields on an existing template: name, html_content, css_content, default_params, or metadata. Only provided fields are changed.",
       parameters: {
@@ -387,7 +387,7 @@ const plugin: PluginEntry = {
 
     // ─── Delete Template ─────────────────────────────────────
     api.registerTool({
-      name: "pdfapihub_delete_template",
+      name: "delete_pdf_template",
       description:
         "Permanently delete a saved template by its UUID. This cannot be undone.",
       parameters: {
