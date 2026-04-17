@@ -1,0 +1,14 @@
+{
+  "name": "html-to-pdf",
+  "displayName": "HTML to PDF",
+  "description": "Generate PDFs from HTML content or URLs. Supports page sizes, Google Fonts, margins, dynamic placeholders, and reusable templates. Powered by PDFAPIHub.",
+  "version": "1.0.0",
+  "author": "PdfApiHub",
+  "homepage": "https://pdfapihub.com",
+  "extensions": ["./index.ts"],
+  "skills": ["./skills"],
+  "compat": {
+    "pluginApi": ">=2026.3.24-beta.2",
+    "minGatewayVersion": "2026.3.24-beta.2"
+  }
+}
