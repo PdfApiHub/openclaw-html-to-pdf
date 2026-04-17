@@ -37,14 +37,10 @@ async function callApi(
 }
 
 function getApiKey(config: Record<string, unknown>): string {
-  const key =
-    (config.apiKey as string) ||
-    process.env.PDFAPIHUB_API_KEY ||
-    process.env.CLIENT_API_KEY ||
-    "";
+  const key = (config.apiKey as string) || "";
   if (!key) {
     throw new Error(
-      "PDFAPIHub API key not configured. Set it in plugin config, or as PDFAPIHUB_API_KEY environment variable. Get a free key at https://pdfapihub.com"
+      "PDFAPIHub API key not configured. Add your key in plugin config (plugins.entries.html-pdf.env.PDFAPIHUB_API_KEY) or set apiKey in plugin config. Get a free key at https://pdfapihub.com"
     );
   }
   return key;
