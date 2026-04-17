@@ -1,0 +1,34 @@
+{
+  "name": "@pdfapihub/openclaw-html-to-pdf",
+  "version": "1.0.0",
+  "description": "OpenClaw plugin for PDFAPIHub — Generate PDFs from HTML content or URLs with custom styling, fonts, margins, dynamic parameters, and template support.",
+  "type": "module",
+  "main": "index.ts",
+  "keywords": [
+    "openclaw",
+    "pdf",
+    "html-to-pdf",
+    "url-to-pdf",
+    "pdfapihub",
+    "document-generation"
+  ],
+  "author": "PDFAPIHub <hello@pdfapihub.com>",
+  "license": "MIT",
+  "homepage": "https://pdfapihub.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdfapihub/openclaw-html-to-pdf"
+  },
+  "openclaw": {
+    "extensions": ["./index.ts"],
+    "skills": ["./skills"],
+    "compat": {
+      "pluginApi": ">=2026.3.24-beta.2",
+      "minGatewayVersion": "2026.3.24-beta.2"
+    },
+    "build": {
+      "openclawVersion": "2026.3.24-beta.2",
+      "pluginSdkVersion": "2026.3.24-beta.2"
+    }
+  }
+}
