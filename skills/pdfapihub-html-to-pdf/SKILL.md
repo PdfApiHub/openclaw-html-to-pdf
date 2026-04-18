@@ -29,22 +29,7 @@ Configure in `~/.openclaw/openclaw.json`:
 {
   "plugins": {
     "entries": {
-      "html-pdf": {
-        "enabled": true,
-        "apiKey": "your-api-key-here"
-      }
-    }
-  }
-}
-```
-
-Or use the `env` approach (OpenClaw injects it into `config.apiKey` automatically):
-
-```json
-{
-  "plugins": {
-    "entries": {
-      "html-pdf": {
+      "html-to-pdf": {
         "enabled": true,
         "env": {
           "PDFAPIHUB_API_KEY": "your-api-key-here"
@@ -55,7 +40,7 @@ Or use the `env` approach (OpenClaw injects it into `config.apiKey` automaticall
 }
 ```
 
-**Privacy note:** URLs, HTML content, and any custom headers you provide are sent to PDFAPIHub servers for processing. Do not pass Authorization headers, cookies, or internal URLs to `url_to_html`.
+Or set the environment variable: `export PDFAPIHUB_API_KEY=your-api-key`
 
 ## Usage Examples
 

@@ -40,7 +40,7 @@ function getApiKey(config: Record<string, unknown>): string {
   const key = (config.apiKey as string) || "";
   if (!key) {
     throw new Error(
-      "PDFAPIHub API key not configured. Add your key in plugin config (plugins.entries.html-pdf.env.PDFAPIHUB_API_KEY) or set apiKey in plugin config. Get a free key at https://pdfapihub.com"
+      "PDFAPIHub API key not configured. Set it under plugins.entries.html-pdf in your openclaw.json: either as apiKey (string) or via env.PDFAPIHUB_API_KEY. Get a free key at https://pdfapihub.com"
     );
   }
   return key;
@@ -169,7 +169,7 @@ const plugin: PluginEntry = {
     api.registerTool({
       name: "url_to_html",
       description:
-        "Fetch the fully-rendered HTML of any public URL using headless Chromium. Useful for scraping SPAs or JS-rendered pages where a simple HTTP GET returns only a loading skeleton. The fetched HTML can then be passed to html_to_pdf.",
+        "Fetch the fully-rendered HTML of any public URL using headless Chromium. Useful for scraping SPAs or JS-rendered pages. The fetched HTML can then be passed to html_to_pdf. PRIVACY NOTE: The URL, any custom headers, and user-agent you provide are sent to PDFAPIHub servers for rendering. Do NOT pass Authorization headers, cookies, or internal/private URLs — they will be transmitted to the third-party service.",
       parameters: {
         type: "object",
         properties: {
@@ -210,7 +210,7 @@ const plugin: PluginEntry = {
           headers: {
             type: "object",
             additionalProperties: { type: "string" },
-            description: "Additional request headers.",
+            description: "Additional request headers. WARNING: Do NOT include Authorization, Cookie, or other secret headers — they are sent to PDFAPIHub servers.",
           },
         },
         required: ["url"],

@@ -12,12 +12,19 @@
     "pluginApi": ">=2026.3.24-beta.2",
     "minGatewayVersion": "2026.3.24-beta.2"
   },
+  "metadata": {
+    "openclaw": {
+      "primaryEnv": "PDFAPIHUB_API_KEY",
+      "requires": { "env": ["PDFAPIHUB_API_KEY"] }
+    }
+  },
   "configSchema": {
     "type": "object",
+    "required": ["apiKey"],
     "properties": {
       "apiKey": {
         "type": "string",
-        "description": "PDFAPIHub API key. Get a free key at https://pdfapihub.com"
+        "description": "PDFAPIHub API key (required). Get a free key at https://pdfapihub.com. URLs and HTML you process are sent to PDFAPIHub servers."
       }
     }
   }
